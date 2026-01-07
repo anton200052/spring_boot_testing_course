@@ -62,7 +62,7 @@ public class DemoUtilsTest {
     
     @Test
     public void testThrowsOrNor() {
-        assertThrows(Exception.class, () -> demoUtils.throwException(-1));
+        assertThrows(Exception.class, () -> demoUtils.throwException(-1)) ;
         assertDoesNotThrow(() -> demoUtils.throwException(1));
     }
 
