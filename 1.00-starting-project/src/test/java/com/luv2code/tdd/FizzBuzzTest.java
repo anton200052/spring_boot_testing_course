@@ -1,5 +1,7 @@
 package com.luv2code.tdd;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -45,5 +47,13 @@ class FizzBuzzTest {
         assertNotEquals("Fizz", FizzBuzz.compute(1), "Should not be divisible");
         assertNotEquals("Buzz", FizzBuzz.compute(1), "Should not be divisible");
         assertNotEquals("FizzBuzz", FizzBuzz.compute(1), "Should not be divisible");
+    }
+
+    @Order(5)
+    @DisplayName("Testing with small data file")
+    @ParameterizedTest(name = "value = {0}, expected = {1}")
+    @CsvFileSource(resources = "/small-test-data.csv")
+    void testSmallDataFile(int value, String expected) {
+        assertEquals(expected, FizzBuzz.compute(value), "Should return " + expected);
     }
 }

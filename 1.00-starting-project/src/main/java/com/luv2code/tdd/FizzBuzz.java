@@ -6,7 +6,7 @@ public class FizzBuzz {
     // If number is divisible by 3 and 5, print FizzBuzz
     // If number in NOT divisible by 3 or 5, then print the number
 
-    public static String compute(int number) {
+    /*public static String compute(int number) {
         if (number % 3 == 0 && number % 5 == 0) {
             return "FizzBuzz";
         }
@@ -17,5 +17,25 @@ public class FizzBuzz {
             return "Buzz";
         }
         return String.valueOf(number);
+    }*/
+
+
+    // ultimate version
+    public static String compute(int number) {
+        StringBuilder result = new StringBuilder();
+
+        if (number % 3 == 0) {
+            result.append("Fizz");
+        }
+
+        if (number % 5 == 0) {
+            result.append("Buzz");
+        }
+
+        if (result.isEmpty()) {
+            result.append(number);
+        }
+
+        return result.toString();
     }
 }
